@@ -34,10 +34,10 @@ process blast_to_table {
     set query_ID, file(blast0fmt) from blast_to_table_ch
 
     output:
-    set query_ID, file("${query_ID}-cazy_blast.txt")
+    set query_ID, file("${query_ID}-${params.results}.txt")
 
     script:
     """
-    perl ${baseDir}/bin/blast2table.pl -hc ${blast0fmt} > ${query_ID}-cazy_blast.txt
+    perl ${baseDir}/bin/blast2table.pl -hc ${blast0fmt} > ${query_ID}-${params.results}.txt
     """
 }
